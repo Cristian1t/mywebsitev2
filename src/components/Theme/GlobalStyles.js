@@ -1,13 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.text};
-    font-family: ${({ theme }) => theme.fonts.copy}, sans-serif;
+    font-family: ${({ theme }) => theme.fonts.main}, sans-serif;
     margin: 0;
     padding: 0;
-    
 
     @keyframes grow {
     from {

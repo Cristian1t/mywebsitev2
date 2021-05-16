@@ -1,18 +1,18 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { Normalize } from 'styled-normalize';
-import { GlobalStyles } from './GlobalStyles';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { Normalize } from "styled-normalize";
+import { GlobalStyles } from "./GlobalStyles";
 
 const mainTheme = {
   color: {
-    details2: '#00ADB5',
-    details: '#222831',
-    text: '#393E46',
-    background: '#EEEEEE',
+    details2: "#00ADB5",
+    details: "#222831",
+    text: "#393E46",
+    background: "#EEEEEE",
   },
   fonts: {
-    header: 'Nunito',
-    copy: 'Fira Code',
+    main: "Nunito",
+    second: "Fira Code",
   },
 };
 

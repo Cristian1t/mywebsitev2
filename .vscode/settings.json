@@ -1,0 +1,5 @@
+{
+  "cSpell.ignoreWords": ["fira", "nunito"],
+  "terminal.explorerKind": "external",
+  "terminal.integrated.automationShell.windows": "true"
+}

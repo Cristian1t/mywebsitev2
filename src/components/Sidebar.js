@@ -1,10 +1,14 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
-import styled from 'styled-components';
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import styled from "styled-components";
+
+import { GiPositionMarker } from "@react-icons/all-files/gi/GiPositionMarker";
+import { FaGithubSquare } from "@react-icons/all-files/fa/FaGithubSquare";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 
 const StyledSidebar = styled.div`
-  height: 95%;
-  margin: auto 0;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   margin-left: 1rem;
   background: white;
   grid-row-start: span 2;
@@ -25,14 +29,33 @@ const StyledSidebar = styled.div`
       width: 30%;
       border-radius: 50%;
     }
+    .name {
+      color: ${({ theme }) => theme.color.details2};
+    }
   }
   .sidebarmiddle {
     display: flex;
     flex-direction: column;
     .socials {
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto auto;
       grid-template-rows: 1fr 1fr;
+      justify-items: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      .socialicon {
+        justify-self: end;
+      }
+      .sociallink {
+        justify-self: start;
+        :hover {
+          background: ${({ theme }) => theme.color.background};
+        }
+      }
+      a {
+        text-decoration: none;
+      }
     }
     .aboutme,
     .contactme {
@@ -52,6 +75,7 @@ const StyledSidebar = styled.div`
   }
   .sidebarbottom {
     justify-self: flex-end;
+    text-align: center;
   }
 `;
 
@@ -63,21 +87,30 @@ function Sidebar() {
           className="myimage"
           src="../images/profileimg.jpg"
           layout="constrained"
+          alt="mypicture"
         />
         <h2 className="name">Cristian Turmacu</h2>
         <h3>Web Developer</h3>
         <p>cristianturmacu@yahoo.com</p>
         <p>
-          <span>$ </span>
+          <GiPositionMarker />
           Verona, Italy
         </p>
       </div>
       <div className="sidebarmiddle">
         <div className="socials">
-          <div>giticon</div>
-          <div>Github</div>
-          <div>linkedicon</div>
-          <div>LinkedIn</div>
+          <div className="socialicon">
+            <FaGithubSquare />
+          </div>
+          <div className="sociallink">
+            <a href="https://github.com/Cristian1t">Github</a>
+          </div>
+          <div className="socialicon">
+            <FaLinkedin />
+          </div>
+          <div className="sociallink">
+            <a href="https://www.linkedin.com/in/cristianturmacu/">Linkedin</a>
+          </div>
         </div>
         <div className="aboutme">
           <h2>About me</h2>

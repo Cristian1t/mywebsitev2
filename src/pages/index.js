@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import MainComponent from "../components/MainComponent";
 
 function index() {
   return (
     <div>
-      <h1 style={{ height: '25rem' }}>hello</h1>
+      <MainComponent />
     </div>
   );
 }
