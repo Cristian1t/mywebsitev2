@@ -67,7 +67,7 @@ function Hero() {
       <div className="line"></div>
       <div className="otherh3">
         <h3 className="lefth3">I'm a Front-End Developer</h3>
-        <h3 className="lefth3">Still learning a lot of thing, but...</h3>
+        <h3 className="lefth3">Still learning a lot of things, but...</h3>
         <h3 className="righth3">...check out some of my work</h3>
       </div>
     </StyledHero>
