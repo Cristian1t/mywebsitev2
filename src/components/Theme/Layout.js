@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
-import { ComponentProvider } from "./ComponentContext";
 
 export const LayoutStyles = styled.div`
   height: 100vh;
@@ -24,7 +23,7 @@ const Onmobilestyle = styled.div`
 
 function Layout({ children }) {
   return (
-    <ComponentProvider>
+    <>
       <LayoutStyles>
         <Sidebar />
         <Navbar />
@@ -33,7 +32,7 @@ function Layout({ children }) {
       <Onmobilestyle>
         <h1>Not responsive yet, go on desktop</h1>
       </Onmobilestyle>
-    </ComponentProvider>
+    </>
   );
 }
 
