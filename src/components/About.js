@@ -1,18 +1,13 @@
-import React from "react";
+import React from 'react';
+import { BasicTable } from './ProjectTable/BasicTable';
 
-function About() {
+const About = () => {
   return (
     <div>
-      <h1>Coming soon</h1>
-      <h2>For now it's a to do list for this website:</h2>
-      <ul>
-        <li>Create all pages: Projects, About, Contact</li>
-        <li>Add theme(dark, light), languages(english, italian)</li>
-        <li>Improve style, UI/UX on everything</li>
-        <li>Add the rest of the plugins: helmet, sitemap, manifest, Gtag</li>
-      </ul>
+      <h1>Still working on this... trying React Table 😅</h1>
+      <BasicTable />
     </div>
   );
-}
+};
 
 export default About;

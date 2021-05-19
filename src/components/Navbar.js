@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import styled from "styled-components";
-import About from "./About";
-import Contact from "./Contact";
-import Hero from "./Hero";
-import Projects from "./Projects";
-import { ComponentContext } from "./Theme/ComponentContext";
+import React, { useState, useContext, useEffect } from 'react';
+import styled from 'styled-components';
+import About from './About';
+import Contact from './Contact';
+import Hero from './Hero';
+import Projects from './Projects';
+import { ComponentContext } from './Theme/ComponentContext';
 
 const StyledNavbar = styled.div`
   background: white;
@@ -40,18 +40,18 @@ const StyledNavbar = styled.div`
 function Navbar() {
   const { setComponent } = useContext(ComponentContext);
   const [appState, changeState] = useState({
-    activeObject: { id: 1, name: "Home", componentname: <Hero /> },
+    activeObject: { id: 1, name: 'Home', componentname: <Hero /> },
     objects: [
-      { id: 1, name: "Home", componentname: <Hero /> },
-      { id: 2, name: "Projects", componentname: <Projects /> },
-      { id: 3, name: "About", componentname: <About /> },
-      { id: 4, name: "Contact", componentname: <Contact /> },
+      { id: 1, name: 'Home', componentname: <Hero /> },
+      { id: 2, name: 'Projects', componentname: <Projects /> },
+      { id: 3, name: 'About', componentname: <About /> },
+      { id: 4, name: 'Contact', componentname: <Contact /> },
     ],
   });
 
   function toggleActiveStyles(index) {
     if (appState.objects[index] === appState.activeObject) {
-      return "isactive";
+      return 'isactive';
     } else {
       return null;
     }
@@ -74,6 +74,10 @@ function Navbar() {
             onClick={() => {
               toggleActive(index);
             }}
+            onKeyDown={() => {
+              toggleActive(index);
+            }}
+            role="presentation"
           >
             {elements.name}
           </li>
