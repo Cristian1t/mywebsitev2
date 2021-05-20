@@ -1,10 +1,10 @@
-import React from "react";
-import MainComponent from "../components/MainComponent";
+import React from 'react';
+import Hero from '../components/Hero';
 
 function index() {
   return (
     <div>
-      <MainComponent />
+      <Hero />
     </div>
   );
 }

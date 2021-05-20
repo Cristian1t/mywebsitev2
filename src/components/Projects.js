@@ -47,7 +47,12 @@ function Projects() {
 
   return (
     <StyledProjects>
-      <h1>Still working on this... 😅</h1>
+      <h1>
+        Still working on this...{' '}
+        <span role="img" aria-label="smile">
+          😅
+        </span>
+      </h1>
       <div className="topside">
         <h3>{project.activeProject.name}</h3>
       </div>

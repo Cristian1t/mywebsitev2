@@ -1,10 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'gatsby';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import About from './About';
-import Contact from './Contact';
-import Hero from './Hero';
-import Projects from './Projects';
-import { ComponentContext } from './Theme/ComponentContext';
 
 const StyledNavbar = styled.div`
   background: white;
@@ -29,6 +25,11 @@ const StyledNavbar = styled.div`
         cursor: pointer;
       }
     }
+    a {
+      width: auto;
+      text-decoration: none;
+      color: inherit;
+    }
     .isactive {
       background: ${({ theme }) => theme.color.details2};
       border-radius: 20px 20px 0 0;
@@ -38,14 +39,21 @@ const StyledNavbar = styled.div`
 `;
 
 function Navbar() {
-  const { setComponent } = useContext(ComponentContext);
   const [appState, changeState] = useState({
-    activeObject: { id: 1, name: 'Home', componentname: <Hero /> },
+    activeObject: {
+      id: 1,
+      name: 'Home',
+      linkto: '/',
+    },
     objects: [
-      { id: 1, name: 'Home', componentname: <Hero /> },
-      { id: 2, name: 'Projects', componentname: <Projects /> },
-      { id: 3, name: 'About', componentname: <About /> },
-      { id: 4, name: 'Contact', componentname: <Contact /> },
+      { id: 1, name: 'Home', linkto: '/' },
+      {
+        id: 2,
+        name: 'Projects',
+        linkto: '/projects',
+      },
+      { id: 3, name: 'About', linkto: '/about' },
+      { id: 4, name: 'Contact', linkto: '/contact' },
     ],
   });
 
@@ -60,17 +68,12 @@ function Navbar() {
   function toggleActive(index) {
     changeState({ ...appState, activeObject: appState.objects[index] });
   }
-
-  useEffect(() => {
-    setComponent(appState.activeObject.componentname);
-  });
   return (
     <StyledNavbar>
       <ul className="navitems">
         {appState.objects.map((elements, index) => (
-          <li
+          <Link
             key={index}
-            className={toggleActiveStyles(index)}
             onClick={() => {
               toggleActive(index);
             }}
@@ -78,9 +81,10 @@ function Navbar() {
               toggleActive(index);
             }}
             role="presentation"
+            to={elements.linkto}
           >
-            {elements.name}
-          </li>
+            <li className={toggleActiveStyles(index)}>{elements.name}</li>
+          </Link>
         ))}
       </ul>
     </StyledNavbar>

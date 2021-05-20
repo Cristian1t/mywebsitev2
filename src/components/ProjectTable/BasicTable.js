@@ -3,7 +3,6 @@ import { useTable } from 'react-table';
 import styled from 'styled-components';
 import { COLUMNS } from './columns';
 import project_data from './project_data.json';
-import { ProjectList } from '../ProjectList';
 
 const StyledTable = styled.div`
   table {
