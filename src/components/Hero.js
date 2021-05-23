@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import React, { useEffect, useRef } from 'react';
 import Parallax from 'parallax-js';
 import { Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 const StyledHero = styled.div`
   @media (max-width: 768px) {
@@ -41,6 +42,9 @@ const StyledHero = styled.div`
       animation: slideInFromRight 2s ease-in-out;
       align-self: flex-start;
       line-height: 10%;
+      @media (max-width: 768px) {
+        line-height: normal;
+      }
     }
     .righth3 {
       margin-top: 10rem;
@@ -119,6 +123,9 @@ const Hero = () => {
 
   return (
     <StyledHero id="container">
+      <Helmet>
+        <title>Cristian Turmacu || Home</title>
+      </Helmet>
       <Typist
         className="mytypist"
         cursor={{ show: false }}

@@ -24,6 +24,9 @@ const StyledSidebar = styled.div`
     margin-right: 1rem;
     grid-row-start: span 1;
   }
+  @media (max-width: 425px) {
+    margin: 0;
+  }
   .sidebartop {
     display: flex;
     flex-direction: column;

@@ -2,11 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
+    z-index: 10;
     background: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.text};
     font-family: ${({ theme }) => theme.fonts.main}, sans-serif;
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 
     @keyframes grow {
     from {

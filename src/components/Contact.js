@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function Contact() {
   return (
     <div>
+      <Helmet>
+        <title>Cristian Turmacu || Contact</title>
+      </Helmet>
       <h1>
         For now you can only contact me at{' '}
         <a href="mailto:cristianturmacu@yahoo.com">cristianturmacu@yahoo.com</a>

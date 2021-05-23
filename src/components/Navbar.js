@@ -14,6 +14,9 @@ const StyledNavbar = styled.div`
     margin-left: 1rem;
     margin-top: 0;
   }
+  @media (max-width: 425px) {
+    margin: 0;
+  }
   .navitems {
     font-size: 1.5rem;
     margin-right: 3rem;
