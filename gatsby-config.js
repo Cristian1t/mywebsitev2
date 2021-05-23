@@ -1,33 +1,45 @@
 module.exports = {
   siteMetadata: {
-    title: "Cristian Turmacu",
+    title: 'Cristian Turmacu',
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: "src/images/icon.png",
+        icon: 'src/images/logo.svg',
+        name: `Cristian Turmacu`,
+        short_name: `Cristian Turmacu`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#00ADB5`,
+        display: `standalone`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about/`, `/projects/`],
       },
     },
     `gatsby-plugin-postcss`,
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: 'images',
+        path: './src/images/',
       },
-      __key: "images",
+      __key: 'images',
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Nunito`, `Fira Code`],
-        display: "swap",
+        display: 'swap',
       },
     },
   ],

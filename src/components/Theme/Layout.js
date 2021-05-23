@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Navbar from "../Navbar";
-import Sidebar from "../Sidebar";
+import React from 'react';
+import styled from 'styled-components';
+import Navbar from '../Navbar';
+import Sidebar from '../Sidebar';
 
 export const LayoutStyles = styled.div`
   height: 100vh;
@@ -12,27 +12,24 @@ export const LayoutStyles = styled.div`
   margin: 0;
   padding: 0;
   @media (max-width: 768px) {
-    display: none;
+    grid-template-columns: auto;
+    grid-template-rows: 0.2fr 0.2fr auto;
+    grid-gap: 1rem;
   }
 `;
-const Onmobilestyle = styled.div`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
+// const Onmobilestyle = styled.div`
+//   @media (min-width: 768px) {
+//     display: none;
+//   }
+// `;
 
 function Layout({ children }) {
   return (
-    <>
-      <LayoutStyles>
-        <Sidebar />
-        <Navbar />
-        <main>{children}</main>
-      </LayoutStyles>
-      <Onmobilestyle>
-        <h1>Not responsive yet, go on desktop</h1>
-      </Onmobilestyle>
-    </>
+    <LayoutStyles>
+      <Sidebar />
+      <Navbar />
+      <main>{children}</main>
+    </LayoutStyles>
   );
 }
 

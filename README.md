@@ -17,6 +17,7 @@
   - React Icons
   - Styled Normalize
   - React Typist
+  - Parallax-js
 
 # What i learnt / improved:
 

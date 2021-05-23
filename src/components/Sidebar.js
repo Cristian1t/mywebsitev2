@@ -1,12 +1,13 @@
-import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import styled from "styled-components";
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+import styled from 'styled-components';
 
-import { GiPositionMarker } from "@react-icons/all-files/gi/GiPositionMarker";
-import { FaGithubSquare } from "@react-icons/all-files/fa/FaGithubSquare";
-import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
+import { GiPositionMarker } from '@react-icons/all-files/gi/GiPositionMarker';
+import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
+import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 
 const StyledSidebar = styled.div`
+  z-index: 2;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   margin-left: 1rem;
@@ -17,25 +18,53 @@ const StyledSidebar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  grid-gap: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 0;
+    margin-right: 1rem;
+    grid-row-start: span 1;
+  }
   .sidebartop {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    @media (max-width: 768px) {
+      flex-direction: row;
+      margin-top: 0;
+      width: 100%;
+      justify-content: space-evenly;
+    }
     .myimage {
       border: 3px solid black;
       width: 30%;
       border-radius: 50%;
+      @media (max-width: 768px) {
+        width: 8%;
+        border: 1px solid black;
+      }
     }
     .name {
       color: ${({ theme }) => theme.color.details2};
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      width: 100%;
+      word-wrap: break-word;
+      font-size: 1rem;
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
   .sidebarmiddle {
     display: flex;
     flex-direction: column;
+    @media (max-width: 768px) {
+      display: none;
+    }
     .socials {
       display: grid;
       grid-template-columns: auto auto;
@@ -55,6 +84,10 @@ const StyledSidebar = styled.div`
       }
       a {
         text-decoration: none;
+        color: inherit;
+        :hover {
+          color: ${({ theme }) => theme.color.details2};
+        }
       }
     }
     .aboutme,
@@ -76,6 +109,9 @@ const StyledSidebar = styled.div`
   .sidebarbottom {
     justify-self: flex-end;
     text-align: center;
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -40,6 +40,19 @@ export const GlobalStyles = createGlobalStyle`
     transform: translateY(0);
   }
 }
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(4rem);
+    
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
 }
    /* h3, p {
     font-family: ${({ theme }) => theme.fonts.copy}, sans-serif;

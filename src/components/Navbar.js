@@ -10,6 +10,10 @@ const StyledNavbar = styled.div`
   margin-right: 1rem;
   display: grid;
   align-content: center;
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
   .navitems {
     font-size: 1.5rem;
     margin-right: 3rem;
@@ -17,6 +21,11 @@ const StyledNavbar = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1rem;
+    @media (max-width: 768px) {
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
     li {
       padding: 1rem;
       :hover {

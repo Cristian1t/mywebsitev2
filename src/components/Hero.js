@@ -1,30 +1,36 @@
-import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import Typist from "react-typist";
-import styled from "styled-components";
+import Typist from 'react-typist';
+import styled from 'styled-components';
+import React, { useEffect, useRef } from 'react';
+import Parallax from 'parallax-js';
+import { Link } from 'gatsby';
 
 const StyledHero = styled.div`
-  .myimage {
-    position: absolute;
-    bottom: 1.5rem;
+  @media (max-width: 768px) {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
   }
   .mytypist {
-    line-height: 80%;
+    /* line-height: 80%; */
     .bighello {
-      font-size: 8rem;
+      font-size: 6rem;
       font-family: ${({ theme }) => theme.fonts.second};
       font-weight: bold;
       text-transform: uppercase;
+      margin: 0;
     }
     h2 {
       font-size: 3rem;
     }
   }
   .line {
-    width: 50%;
+    width: 40%;
     height: 3px;
     background: white;
     animation: grow 2s ease-in;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   .otherh3 {
     margin-top: 5rem;
@@ -37,25 +43,82 @@ const StyledHero = styled.div`
       line-height: 10%;
     }
     .righth3 {
-      z-index: 2;
-      margin-top: 6rem;
-      align-self: flex-end;
-      margin-right: 3rem;
+      margin-top: 10rem;
       animation: slideInFromLeft 2s ease;
+      @media (max-width: 768px) {
+        align-self: flex-end;
+      }
+      a {
+        color: ${({ theme }) => theme.color.details};
+        :hover {
+          color: ${({ theme }) => theme.color.details2};
+        }
+      }
+    }
+  }
+  .scene {
+    color: ${({ theme }) => theme.color.details2};
+    font-size: 1.5rem;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    /* animation: float 5s ease infinite; */
+    overflow: hidden;
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .layer1 {
+      width: 5%;
+      margin-top: 18%;
+      margin-left: 70%;
+      font-size: 2.5rem;
+    }
+    .layer2 {
+      margin-top: 22%;
+      margin-left: 70%;
+      font-size: 1.5rem;
+    }
+    .layer3 {
+      margin-top: 14%;
+      margin-left: 75%;
+    }
+    .layer4 {
+      margin-top: 20%;
+      margin-left: 78%;
+      font-size: 1rem;
+    }
+    .layer5 {
+      margin-top: 26%;
+      margin-left: 80%;
+    }
+    .layer6 {
+      margin-top: 27%;
+      margin-left: 75%;
+      font-size: 1rem;
     }
   }
 `;
 
-function Hero() {
+const Hero = () => {
+  const sceneEl = useRef(null);
+
+  useEffect(() => {
+    const parallaxInstance = new Parallax(sceneEl.current, {
+      relativeInput: true,
+      hoverOnly: true,
+    });
+
+    parallaxInstance.enable();
+    console.log(sceneEl);
+
+    return () => parallaxInstance.disable();
+  }, []);
+
   return (
-    <StyledHero>
-      <StaticImage
-        className="myimage"
-        src="../images/wave.svg"
-        layout="constrained"
-        alt="mywave"
-        placeholder="tracedSVG"
-      />
+    <StyledHero id="container">
       <Typist
         className="mytypist"
         cursor={{ show: false }}
@@ -68,10 +131,38 @@ function Hero() {
       <div className="otherh3">
         <h3 className="lefth3">I'm a Front-End Developer</h3>
         <h3 className="lefth3">Still learning a lot of things, but...</h3>
-        <h3 className="righth3">...check out some of my work</h3>
+        <h3 className="righth3">
+          ...check out some of my <Link to="/projects">work</Link>
+        </h3>
+      </div>
+      <div
+        id="scene"
+        data-hover-only="true"
+        data-relative-input="true"
+        className="scene border"
+        ref={sceneEl}
+      >
+        <div data-depth="0.6" className="layer1">
+          <h2>React</h2>
+        </div>
+        <div data-depth="0.4" className="layer2">
+          <h2>Figma</h2>
+        </div>
+        <div data-depth="0.5" className="layer3">
+          <h2>GatsbyJs</h2>
+        </div>
+        <div data-depth="0.3" className="layer4">
+          <h2>Styled-Components</h2>
+        </div>
+        <div data-depth="0.22" className="layer5">
+          <h2>NextJs</h2>
+        </div>
+        <div data-depth="0.35" className="layer6">
+          <h2>Git</h2>
+        </div>
       </div>
     </StyledHero>
   );
-}
+};
 
 export default Hero;
