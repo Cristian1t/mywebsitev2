@@ -5,12 +5,16 @@ import { COLUMNS } from './columns';
 import project_data from './project_data.json';
 
 const StyledTable = styled.div`
+  width: 100%;
   table {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     border-collapse: collapse;
     th,
     td {
       border: 1px solid lightgrey;
-      padding: 8px;
     }
     tr {
       text-align: center;
@@ -18,15 +22,13 @@ const StyledTable = styled.div`
         background-color: #f2f2f2;
       }
       :hover {
-        background-color: #ddd;
+        background-color: ${({ theme }) => theme.color.details2};
         cursor: pointer;
       }
     }
     th {
-      padding-top: 12px;
-      padding-bottom: 12px;
       text-align: center;
-      background-color: #4caf50;
+      background-color: ${({ theme }) => theme.color.details};
       color: white;
     }
   }
@@ -34,7 +36,14 @@ const StyledTable = styled.div`
 
 export const BasicTable = () => {
   const [project, setProject] = useState({
-    activeProject: { project_name: 'Click on a Project to see more' },
+    activeProject: {
+      project_name: `Latest Project:  Mosta Saloon`,
+      project_type: 'website',
+      project_description: 'hello',
+      desktop: '"../../images/mostaDesktop.png"',
+      stackused: 'react',
+      website: 'hello.com',
+    },
     projects: '',
   });
   const columns = useMemo(() => COLUMNS, []);
@@ -47,17 +56,26 @@ export const BasicTable = () => {
 
   function handleClick(row) {
     setProject({ ...project, activeProject: row });
-    console.log(row);
   }
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
-
   return (
     <StyledTable>
-      <div>
-        <h1>{project.activeProject.project_name}</h1>
+      <div className="opened">
+        <div className="imageside">
+          <img src={project.activeProject.desktop} alt="desktopimg" />
+        </div>
+        <div className="infoside">
+          <h2>{project.activeProject.project_name}</h2>
+          <h3>{project.activeProject.project_type}</h3>
+          <h4>Description: {project.activeProject.project_description}</h4>
+          <h4>Stack: {project.activeProject.stackused}</h4>
+          <button>{project.activeProject.website}</button>
+          <div></div>
+        </div>
       </div>
+      <h2>Click on a project to see more info</h2>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

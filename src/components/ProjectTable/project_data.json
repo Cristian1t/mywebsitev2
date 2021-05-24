@@ -4,7 +4,8 @@
     "project_name": "Mosta Saloon",
     "project_type": "Single Page Website",
     "stackused": "Gatsby, React, styled-components",
-    "website": "www.mostasaloon.it"
+    "website": "www.mostasaloon.it",
+    "desktop": "../../images/mostaDesktop.png"
   },
   {
     "id": 2,

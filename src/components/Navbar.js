@@ -3,34 +3,32 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledNavbar = styled.div`
+  display: flex;
+  justify-content: center;
   background: white;
-  border-radius: 20px;
-  box-shadow: 3px 4px 4px 2px rgba(0, 0, 0, 0.25);
-  margin-top: 1.5rem;
-  margin-right: 1rem;
-  display: grid;
-  align-content: center;
-  @media (max-width: 768px) {
-    margin-left: 1rem;
-    margin-top: 0;
-  }
-  @media (max-width: 425px) {
-    margin: 0;
+  @media (min-width: 769px) {
+    border-radius: 2rem;
+    margin: 1rem 1rem;
+    margin-left: 0;
+    box-shadow: 3px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: flex-end;
   }
   .navitems {
     font-size: 1.5rem;
-    margin-right: 3rem;
     list-style: none;
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-    @media (max-width: 768px) {
-      justify-content: center;
-      padding: 0;
-      margin: 0;
+    padding: 0;
+    margin: 0;
+
+    @media (min-width: 769px) {
+      padding-right: 5rem;
     }
     li {
       padding: 1rem;
+      @media (min-width: 769px) {
+        margin: 0;
+      }
       :hover {
         background: ${({ theme }) => theme.color.background};
         border-radius: 20px 20px 0 0;
@@ -38,7 +36,6 @@ const StyledNavbar = styled.div`
       }
     }
     a {
-      width: auto;
       text-decoration: none;
       color: inherit;
     }
@@ -81,7 +78,7 @@ function Navbar() {
     changeState({ ...appState, activeObject: appState.objects[index] });
   }
   return (
-    <StyledNavbar>
+    <StyledNavbar className="div2">
       <ul className="navitems">
         {appState.objects.map((elements, index) => (
           <Link

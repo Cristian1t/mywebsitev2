@@ -1,9 +1,5 @@
 export const COLUMNS = [
   {
-    Header: 'Id',
-    accessor: 'id',
-  },
-  {
     Header: 'Name',
     accessor: 'project_name',
   },
@@ -14,9 +10,5 @@ export const COLUMNS = [
   {
     Header: 'Stack Used',
     accessor: 'stackused',
-  },
-  {
-    Header: 'Website',
-    accessor: 'website',
   },
 ];

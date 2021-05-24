@@ -6,51 +6,61 @@ import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 const StyledHero = styled.div`
-  @media (max-width: 768px) {
-    text-align: center;
-    width: 90%;
-    margin: 0 auto;
+  width: 100%;
+  @media (min-width: 769px) {
+    width: 55%;
   }
   .mytypist {
-    /* line-height: 80%; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @media (min-width: 769px) {
+      text-align: start;
+    }
+
     .bighello {
-      font-size: 6rem;
+      font-size: 5rem;
       font-family: ${({ theme }) => theme.fonts.second};
       font-weight: bold;
       text-transform: uppercase;
       margin: 0;
+      line-height: normal;
+      @media (min-width: 769px) {
+        font-size: 7em;
+      }
     }
-    h2 {
-      font-size: 3rem;
+    .welcome {
+      line-height: 80%;
+      font-size: 2rem;
+      @media (min-width: 769px) {
+        font-size: 3rem;
+      }
     }
   }
   .line {
-    width: 40%;
-    height: 3px;
+    width: 100%;
+    height: 4px;
     background: white;
-    animation: grow 2s ease-in;
-    @media (max-width: 768px) {
-      width: 100%;
-    }
   }
   .otherh3 {
-    margin-top: 5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    animation: slideInFromBottom 2s ease;
+    @media (min-width: 769px) {
+      font-size: 1.5rem;
+    }
     .lefth3 {
-      animation: slideInFromRight 2s ease-in-out;
-      align-self: flex-start;
-      line-height: 10%;
-      @media (max-width: 768px) {
-        line-height: normal;
+      text-align: left;
+      @media (min-width: 769px) {
+        animation: slideInFromLeft 3s ease;
       }
     }
     .righth3 {
-      margin-top: 10rem;
-      animation: slideInFromLeft 2s ease;
-      @media (max-width: 768px) {
-        align-self: flex-end;
+      padding-top: 10%;
+      text-align: right;
+      @media (min-width: 769px) {
+        animation: slideInFromRight 3s ease;
       }
       a {
         color: ${({ theme }) => theme.color.details};
@@ -61,17 +71,18 @@ const StyledHero = styled.div`
     }
   }
   .scene {
-    color: ${({ theme }) => theme.color.details2};
-    font-size: 1.5rem;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    /* animation: float 5s ease infinite; */
-    overflow: hidden;
-    @media (max-width: 768px) {
-      display: none;
+    display: none;
+    @media (min-width: 769px) {
+      display: flex;
+      color: ${({ theme }) => theme.color.details2};
+      font-size: 1.5rem;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      /* animation: float 5s ease infinite; */
     }
 
     .layer1 {
@@ -116,7 +127,6 @@ const Hero = () => {
     });
 
     parallaxInstance.enable();
-    console.log(sceneEl);
 
     return () => parallaxInstance.disable();
   }, []);
@@ -131,8 +141,8 @@ const Hero = () => {
         cursor={{ show: false }}
         avgTypingDelay={100}
       >
-        <h1 className="bighello">Hello,</h1>
-        <h2>Welcome to my website.</h2>
+        <h2 className="bighello">Hello</h2>
+        <h2 className="welcome">Welcome to my website.</h2>
       </Typist>
       <div className="line"></div>
       <div className="otherh3">

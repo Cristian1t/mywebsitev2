@@ -8,44 +8,39 @@ import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 
 const StyledSidebar = styled.div`
   z-index: 2;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
   background: white;
-  grid-row-start: span 2;
-  border-radius: 20px;
-  box-shadow: 3px 4px 4px 2px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (max-width: 768px) {
-    flex-direction: row;
-    margin-bottom: 0;
-    margin-right: 1rem;
-    grid-row-start: span 1;
-  }
-  @media (max-width: 425px) {
-    margin: 0;
+  justify-content: center;
+  align-content: center;
+  @media (min-width: 769px) {
+    max-width: 300px;
+    border-radius: 2rem;
+    margin: 1rem 1rem;
+    box-shadow: 3px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    justify-content: space-between;
   }
   .sidebartop {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    @media (max-width: 768px) {
-      flex-direction: row;
-      margin-top: 0;
-      width: 100%;
-      justify-content: space-evenly;
+    @media (min-width: 769px) {
+      padding-top: 2rem;
+      margin: 0 auto;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
     }
     .myimage {
-      border: 3px solid black;
-      width: 30%;
+      width: 10%;
       border-radius: 50%;
-      @media (max-width: 768px) {
-        width: 8%;
-        border: 1px solid black;
+      border: 1px solid black;
+      @media (min-width: 769px) {
+        width: 30%;
+        border: 3px solid black;
       }
     }
     .name {
@@ -53,20 +48,19 @@ const StyledSidebar = styled.div`
       text-align: center;
     }
     p {
-      text-align: center;
-      width: 100%;
-      word-wrap: break-word;
-      font-size: 1rem;
-      @media (max-width: 768px) {
-        display: none;
+      display: none;
+      @media (min-width: 769px) {
+        text-align: center;
+        word-wrap: break-word;
+        font-size: 1rem;
       }
     }
   }
   .sidebarmiddle {
-    display: flex;
-    flex-direction: column;
-    @media (max-width: 768px) {
-      display: none;
+    display: none;
+    @media (min-width: 769px) {
+      display: flex;
+      flex-direction: column;
     }
     .socials {
       display: grid;
@@ -93,34 +87,38 @@ const StyledSidebar = styled.div`
         }
       }
     }
+
     .aboutme,
     .contactme {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      p {
+      .text {
         background: ${({ theme }) => theme.color.background};
         width: 80%;
-        margin: 0 auto;
+        border-radius: 1rem;
+      }
+      p {
+        padding: 0.5rem;
         text-align: center;
-        padding: 1rem;
-        border-radius: 1.5rem;
+        font-size: 1rem;
       }
     }
   }
   .sidebarbottom {
-    justify-self: flex-end;
-    text-align: center;
-    @media (max-width: 768px) {
-      display: none;
+    display: none;
+    @media (min-width: 769px) {
+      display: flex;
+      justify-content: center;
+      text-align: center;
     }
   }
 `;
 
 function Sidebar() {
   return (
-    <StyledSidebar>
+    <StyledSidebar className="div1">
       <div className="sidebartop">
         <StaticImage
           className="myimage"
@@ -153,17 +151,21 @@ function Sidebar() {
         </div>
         <div className="aboutme">
           <h2>About me</h2>
-          <p>
-            I'm a passionate Frontend Web Developer and i'm trying to learn and
-            use new web technologies to build amazing products.
-          </p>
+          <div className="text">
+            <p>
+              I'm a passionate Frontend Web Developer and i'm trying to learn
+              and use new web technologies to build amazing products.
+            </p>
+          </div>
           <div className="contactme">
             <h2>Contact me</h2>
-            <p>
-              Feel free to contact me. Whether it's a project, job opportunity,
-              or just a chat. I would love to hear from you. Either using the
-              form or simply to my Email
-            </p>
+            <div className="text">
+              <p>
+                Feel free to contact me. Whether it's a project, job
+                opportunity, or just a chat. I would love to hear from you.
+                Either using the form or simply to my Email
+              </p>
+            </div>
           </div>
         </div>
       </div>

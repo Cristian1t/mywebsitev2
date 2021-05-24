@@ -1,40 +1,53 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 
 export const LayoutStyles = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 22% auto;
-  grid-template-rows: 10% auto;
-  grid-gap: 2rem;
-  margin: 0;
   padding: 0;
-  @media (max-width: 768px) {
-    grid-template-columns: auto;
-    grid-template-rows: 0.2fr 0.2fr auto;
-    grid-gap: 1rem;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.3fr auto 2.4fr;
+  gap: 0.5em;
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 2;
   }
-  @media (max-width: 425px) {
-    grid-template-columns: auto;
-    grid-template-rows: 0.2fr 0.2fr auto;
+  .div2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .div3 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  @media (min-width: 769px) {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     grid-gap: 1rem;
+    .div1 {
+      grid-area: 1 / 1 / 6 / 2;
+    }
+    .div2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    .div3 {
+      grid-area: 2 / 2 / 6 / 3;
+    }
   }
 `;
-// const Onmobilestyle = styled.div`
-//   @media (min-width: 768px) {
-//     display: none;
-//   }
-// `;
 
 function Layout({ children }) {
   return (
     <LayoutStyles>
-      <Sidebar />
-      <Navbar />
-      <main>{children}</main>
+      <Helmet>
+        <meta name="viewport" content="width=device-width, shrink-to-fit=no" />
+      </Helmet>
+      <Sidebar className="div1" />
+      <Navbar className="div2" />
+      <main className="div3">{children}</main>
     </LayoutStyles>
   );
 }
