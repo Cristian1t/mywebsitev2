@@ -13,7 +13,6 @@ export const LayoutStyles = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 0.3fr auto 2.4fr;
   gap: 0.5em;
-
   .div1 {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -27,6 +26,7 @@ export const LayoutStyles = styled.div`
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     grid-gap: 1rem;
+    overflow: hidden;
     .div1 {
       grid-area: 1 / 1 / 6 / 2;
     }

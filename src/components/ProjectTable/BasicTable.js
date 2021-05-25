@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 import styled from 'styled-components';
 import { COLUMNS } from './columns';
@@ -35,17 +35,6 @@ const StyledTable = styled.div`
 `;
 
 export const BasicTable = () => {
-  const [project, setProject] = useState({
-    activeProject: {
-      project_name: `Latest Project:  Mosta Saloon`,
-      project_type: 'website',
-      project_description: 'hello',
-      desktop: '"../../images/mostaDesktop.png"',
-      stackused: 'react',
-      website: 'hello.com',
-    },
-    projects: '',
-  });
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => project_data, []);
 
@@ -54,28 +43,10 @@ export const BasicTable = () => {
     data,
   });
 
-  function handleClick(row) {
-    setProject({ ...project, activeProject: row });
-  }
-
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
   return (
     <StyledTable>
-      <div className="opened">
-        <div className="imageside">
-          <img src={project.activeProject.desktop} alt="desktopimg" />
-        </div>
-        <div className="infoside">
-          <h2>{project.activeProject.project_name}</h2>
-          <h3>{project.activeProject.project_type}</h3>
-          <h4>Description: {project.activeProject.project_description}</h4>
-          <h4>Stack: {project.activeProject.stackused}</h4>
-          <button>{project.activeProject.website}</button>
-          <div></div>
-        </div>
-      </div>
-      <h2>Click on a project to see more info</h2>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -90,10 +61,7 @@ export const BasicTable = () => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr
-                {...row.getRowProps()}
-                onClick={() => handleClick(row.original)}
-              >
+              <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
