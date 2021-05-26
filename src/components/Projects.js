@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { BasicTable } from '../components/ProjectTable/BasicTable';
 import ProjectData from './ProjectTable/ProjectData';
 
 function Projects() {
@@ -9,8 +8,8 @@ function Projects() {
       <Helmet>
         <title>Cristian Turmacu || Projects</title>
       </Helmet>
+      <h2>In development....</h2>
       <ProjectData />
-      <BasicTable />
     </div>
   );
 }

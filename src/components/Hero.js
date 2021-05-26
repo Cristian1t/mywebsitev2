@@ -77,6 +77,7 @@ const Hero = () => {
     <StyledHero id="container">
       <Helmet>
         <title>Cristian Turmacu || Home</title>
+        <meta charSet="utf-8" />
       </Helmet>
       <Typist
         className="mytypist"

@@ -1,14 +1,22 @@
 export const COLUMNS = [
   {
+    Header: 'ID',
+    accessor: 'node.projectId',
+  },
+  {
     Header: 'Name',
-    accessor: 'project_name',
+    accessor: 'node.projectName',
   },
   {
-    Header: 'Type',
-    accessor: 'project_type',
+    Header: 'Description',
+    accessor: 'node.projectDescription',
   },
   {
-    Header: 'Stack Used',
-    accessor: 'stackused',
+    Header: 'Website',
+    accessor: 'node.siteUrl',
+  },
+  {
+    Header: 'Github',
+    accessor: 'node.gitUrl',
   },
 ];

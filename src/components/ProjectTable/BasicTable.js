@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 import styled from 'styled-components';
 import { COLUMNS } from './columns';
-import project_data from './project_data.json';
 
 const StyledTable = styled.div`
   width: 100%;
@@ -34,9 +33,9 @@ const StyledTable = styled.div`
   }
 `;
 
-export const BasicTable = () => {
+export const BasicTable = ({ mydata }) => {
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => project_data, []);
+  const data = useMemo(() => mydata, [mydata]);
 
   const tableInstance = useTable({
     columns,

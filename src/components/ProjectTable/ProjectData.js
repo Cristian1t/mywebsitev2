@@ -1,32 +1,26 @@
-import { StaticQuery, graphql } from 'gatsby';
-import React, { useContext } from 'react';
-import { ComponentContext } from '../Theme/ComponentContext';
+import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
+import { BasicTable } from './BasicTable';
 
-const ProjectData = () => {
+export default function ProjectData() {
   return (
-    <div>
-      <StaticQuery
-        query={graphql`
-          {
-            projects: allContentfulProject {
-              edges {
-                node {
-                  projectId
-                  projectName
-                  projectDescription
-                  siteUrl
-                  gitUrl
-                }
+    <StaticQuery
+      query={graphql`
+        {
+          projects: allContentfulProject {
+            edges {
+              node {
+                projectId
+                projectName
+                projectDescription
+                siteUrl
+                gitUrl
               }
             }
           }
-        `}
-        render={(data) => {
-          console.log(data);
-        }}
-      />
-    </div>
+        }
+      `}
+      render={(data) => <BasicTable mydata={data.projects.edges} />}
+    />
   );
-};
-
-export default ProjectData;
+}

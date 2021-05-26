@@ -5,6 +5,10 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Cristian Turmacu',
+    description:
+      'Personal portfolio website, made to showcase my projects and contact information.',
+    url: 'https://www.cristianturmacu.com',
+    image: '/images/profileimg.jpg',
   },
   plugins: [
     {
