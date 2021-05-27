@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { GiPositionMarker } from '@react-icons/all-files/gi/GiPositionMarker';
 import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
 import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
+import { SiGatsby } from '@react-icons/all-files/si/SiGatsby';
 
 const StyledSidebar = styled.div`
   z-index: 2;
@@ -72,6 +73,12 @@ const StyledSidebar = styled.div`
 
       .socialicon {
         justify-self: end;
+        .github {
+          color: black;
+        }
+        .linkedin {
+          color: royalblue;
+        }
       }
       .sociallink {
         justify-self: start;
@@ -110,8 +117,20 @@ const StyledSidebar = styled.div`
     display: none;
     @media (min-width: 769px) {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       text-align: center;
+      p {
+        margin: 0;
+        margin-bottom: 0.2rem;
+        a {
+          text-decoration: none;
+          color: inherit;
+          .gatsby {
+            vertical-align: top;
+            color: #9932cc;
+          }
+        }
+      }
     }
   }
 `;
@@ -137,13 +156,13 @@ function Sidebar() {
       <div className="sidebarmiddle">
         <div className="socials">
           <div className="socialicon">
-            <FaGithubSquare />
+            <FaGithubSquare className="github" />
           </div>
           <div className="sociallink">
             <a href="https://github.com/Cristian1t">Github</a>
           </div>
           <div className="socialicon">
-            <FaLinkedin />
+            <FaLinkedin className="linkedin" />
           </div>
           <div className="sociallink">
             <a href="https://www.linkedin.com/in/cristianturmacu/">Linkedin</a>
@@ -170,7 +189,18 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebarbottom">
-        <p> Cristian Turmacu, 2021. Made with Gatsbyjs</p>
+        <p>Cristian Turmacu, {new Date().getFullYear()}.</p>{' '}
+        <p>
+          Made with{' '}
+          <a
+            href="https://www.gatsbyjs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiGatsby className="gatsby" />
+            Gatsbyjs
+          </a>
+        </p>
       </div>
     </StyledSidebar>
   );
