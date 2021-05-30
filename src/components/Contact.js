@@ -35,6 +35,9 @@ function Contact() {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
+          <div hidden>
+            <input name="bot-field" />
+          </div>
           <input type="hidden" name="form-name" value="contact v1" />
           <input name="name" placeholder="Your Name" type="text" />
           <input name="email" placeholder="email@adress.com" type="email" />

@@ -27,7 +27,7 @@ module.exports = {
         icon: 'src/images/logo.svg',
         name: `Cristian Turmacu`,
         short_name: `Cristian Turmacu`,
-        start_url: `/`,
+        start_url: `https://www.cristianturmacu.com`,
         background_color: `#ffffff`,
         theme_color: `#00ADB5`,
         display: `standalone`,
