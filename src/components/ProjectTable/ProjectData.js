@@ -15,6 +15,10 @@ export default function ProjectData() {
                 projectDescription
                 siteUrl
                 gitUrl
+                projectTech
+                projectImage {
+                  gatsbyImageData(layout: CONSTRAINED)
+                }
               }
             }
           }

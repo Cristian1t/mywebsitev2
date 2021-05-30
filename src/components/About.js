@@ -37,7 +37,7 @@ const StyledAbout = styled.div`
     @media (min-width: 769px) {
       margin-top: 2rem;
       margin-right: 1.5rem;
-      animation: slideInFromLeft 3s ease;
+      animation: slideInFromLeft 2s ease;
       border-radius: 1rem;
     }
     .besidesp {
@@ -107,9 +107,9 @@ const StyledAbout = styled.div`
     font-size: 1.2rem;
     justify-content: center;
     background: white;
-    animation: slideInFromBottom 3s ease;
+    animation: slideInFromBottom 2s ease;
     @media (min-width: 769px) {
-      animation: slideInFromRight 3s ease;
+      animation: slideInFromRight 2s ease;
       margin-right: 1.5rem;
       border-radius: 1rem;
     }

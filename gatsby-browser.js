@@ -1,5 +1,4 @@
 import React from 'react';
-import { ComponentProvider } from './src/components/Theme/ComponentContext';
 import Layout from './src/components/Theme/Layout';
 import Theme from './src/components/Theme/Theme';
 
@@ -11,9 +10,5 @@ export function wrapPageElement({ element, props }) {
 
 // what goes on the root
 export function wrapRootElement({ element }) {
-  return (
-    <ComponentProvider>
-      <Theme>{element}</Theme>
-    </ComponentProvider>
-  );
+  return <Theme>{element}</Theme>;
 }

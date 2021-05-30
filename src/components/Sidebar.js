@@ -159,13 +159,25 @@ function Sidebar() {
             <FaGithubSquare className="github" />
           </div>
           <div className="sociallink">
-            <a href="https://github.com/Cristian1t">Github</a>
+            <a
+              href="https://github.com/Cristian1t"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
           </div>
           <div className="socialicon">
             <FaLinkedin className="linkedin" />
           </div>
           <div className="sociallink">
-            <a href="https://www.linkedin.com/in/cristianturmacu/">Linkedin</a>
+            <a
+              href="https://www.linkedin.com/in/cristianturmacu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Linkedin
+            </a>
           </div>
         </div>
         <div className="aboutme">

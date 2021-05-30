@@ -1,16 +1,24 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useTable } from 'react-table';
 import styled from 'styled-components';
 import { COLUMNS } from './columns';
+import { ProjectContext } from './ProjectContext';
 
 const StyledTable = styled.div`
   width: 100%;
+  @media (min-width: 769px) {
+    width: 70%;
+    margin: 0 auto;
+  }
   table {
     position: relative;
     width: 100%;
     padding: 0;
     margin: 0;
     border-collapse: collapse;
+    @media (min-width: 679px) {
+      font-size: 1.3rem;
+    }
     th,
     td {
       border: 1px solid lightgrey;
@@ -34,6 +42,8 @@ const StyledTable = styled.div`
 `;
 
 export const BasicTable = ({ mydata }) => {
+  const { setProject } = useContext(ProjectContext);
+
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => mydata, [mydata]);
 
@@ -44,6 +54,11 @@ export const BasicTable = ({ mydata }) => {
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
+
+  function handleClick(row) {
+    console.log(row);
+    setProject(row.original.node);
+  }
   return (
     <StyledTable>
       <table {...getTableProps()}>
@@ -60,7 +75,15 @@ export const BasicTable = ({ mydata }) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr
+                {...row.getRowProps()}
+                onClick={() => {
+                  handleClick(row);
+                }}
+                onKeyDown={() => {
+                  handleClick(row);
+                }}
+              >
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
@@ -71,6 +94,7 @@ export const BasicTable = ({ mydata }) => {
           })}
         </tbody>
       </table>
+      <h2 style={{ textAlign: 'center' }}>Will add more soon...</h2>
     </StyledTable>
   );
 };
