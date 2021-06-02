@@ -3,9 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { GiPositionMarker } from '@react-icons/all-files/gi/GiPositionMarker';
-import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
-import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 import { SiGatsby } from '@react-icons/all-files/si/SiGatsby';
+import Socials from './Socials';
 
 const StyledSidebar = styled.div`
   z-index: 2;
@@ -48,6 +47,12 @@ const StyledSidebar = styled.div`
       color: ${({ theme }) => theme.color.details2};
       text-align: center;
     }
+    h3 {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+
     p {
       display: none;
       @media (min-width: 769px) {
@@ -62,37 +67,6 @@ const StyledSidebar = styled.div`
     @media (min-width: 769px) {
       display: flex;
       flex-direction: column;
-    }
-    .socials {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: 1fr 1fr;
-      justify-items: center;
-      font-size: 1.2rem;
-      cursor: pointer;
-
-      .socialicon {
-        justify-self: end;
-        .github {
-          color: black;
-        }
-        .linkedin {
-          color: royalblue;
-        }
-      }
-      .sociallink {
-        justify-self: start;
-        :hover {
-          background: ${({ theme }) => theme.color.background};
-        }
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-        :hover {
-          color: ${({ theme }) => theme.color.details2};
-        }
-      }
     }
 
     .aboutme,
@@ -146,7 +120,10 @@ function Sidebar() {
           alt="mypicture"
         />
         <h2 className="name">Cristian Turmacu</h2>
-        <h3>Web Developer</h3>
+        <div>
+          <h3>Web Developer</h3>
+          <Socials display="none" />
+        </div>
         <p>cristianturmacu@yahoo.com</p>
         <p>
           <GiPositionMarker />
@@ -154,32 +131,7 @@ function Sidebar() {
         </p>
       </div>
       <div className="sidebarmiddle">
-        <div className="socials">
-          <div className="socialicon">
-            <FaGithubSquare className="github" />
-          </div>
-          <div className="sociallink">
-            <a
-              href="https://github.com/Cristian1t"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </a>
-          </div>
-          <div className="socialicon">
-            <FaLinkedin className="linkedin" />
-          </div>
-          <div className="sociallink">
-            <a
-              href="https://www.linkedin.com/in/cristianturmacu/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Linkedin
-            </a>
-          </div>
-        </div>
+        <Socials display="grid" />
         <div className="aboutme">
           <h2>About me</h2>
           <div className="text">

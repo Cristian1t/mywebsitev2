@@ -55,6 +55,11 @@ const StyledParallax = styled.div`
         margin-left: 71%;
         font-size: 1rem;
     }
+    .layer9 {
+        margin-top: 32%;
+        margin-left: 85%;
+        font-size: 1.2rem;
+    }
   }
 `;
 
@@ -102,6 +107,9 @@ function HeroParallax() {
       </div>
       <div data-depth="0.3" className="layer8">
         <h2>Contentful</h2>
+      </div>
+      <div data-depth="0.6" className="layer9">
+        <h2>Redux</h2>
       </div>
     </StyledParallax>
   );

@@ -34,25 +34,24 @@ const StyledView = styled.div`
       margin: 0;
       text-decoration: underline;
       text-transform: uppercase;
+      color: black;
     }
     h3,
     h4 {
       text-align: center;
       padding: 0;
       margin: 0;
+      font-weight: normal;
     }
     .links {
       display: flex;
       justify-content: space-around;
       margin-bottom: 1rem;
       a {
-        text-decoration: none;
-        color: inherit;
-        border: 1px solid black;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        background: ${({ theme }) => theme.color.details2};
-      }
+        color: ${({ theme }) => theme.color.details2};
+        :hover {
+          color: white;
+        }
     }
   }
 `;
@@ -92,7 +91,13 @@ function ViewProject() {
     );
   } else {
     return (
-      <h2 style={{ textAlign: 'center' }}>
+      <h2
+        style={{
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          color: 'black',
+        }}
+      >
         Click on a project to see more info
       </h2>
     );

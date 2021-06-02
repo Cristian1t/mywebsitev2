@@ -23,7 +23,7 @@ export const LayoutStyles = styled.div`
     grid-area: 3 / 1 / 4 / 2;
   }
   @media (min-width: 769px) {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: minmax(220px, auto) 1fr;
     grid-template-rows: auto 1fr;
     grid-gap: 1rem;
     overflow: hidden;

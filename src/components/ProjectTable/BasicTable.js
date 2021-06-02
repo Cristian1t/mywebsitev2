@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { useTable } from 'react-table';
 import styled from 'styled-components';
 import { COLUMNS } from './columns';
@@ -25,14 +25,18 @@ const StyledTable = styled.div`
     }
     tr {
       text-align: center;
-      :nth-child(even) {
-        background-color: #f2f2f2;
-      }
       :hover {
         background-color: ${({ theme }) => theme.color.details2};
         cursor: pointer;
       }
     }
+
+    .isactive {
+      z-index: 2;
+      background: ${({ theme }) => theme.color.details2};
+      font-weight: bold;
+    }
+
     th {
       text-align: center;
       background-color: ${({ theme }) => theme.color.details};
@@ -43,6 +47,7 @@ const StyledTable = styled.div`
 
 export const BasicTable = ({ mydata }) => {
   const { setProject } = useContext(ProjectContext);
+  const [active, setActive] = useState(false);
 
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => mydata, [mydata]);
@@ -56,9 +61,10 @@ export const BasicTable = ({ mydata }) => {
     tableInstance;
 
   function handleClick(row) {
-    console.log(row);
     setProject(row.original.node);
+    setActive(row);
   }
+
   return (
     <StyledTable>
       <table {...getTableProps()}>
@@ -76,6 +82,7 @@ export const BasicTable = ({ mydata }) => {
             prepareRow(row);
             return (
               <tr
+                className={row.index === active.index ? 'isactive' : null}
                 {...row.getRowProps()}
                 onClick={() => {
                   handleClick(row);
