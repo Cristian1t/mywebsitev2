@@ -73,7 +73,7 @@ module.exports = {
       resolve: 'gatsby-plugin-offline',
       options: {
         workboxConfig: {
-          globPatterns: 'src/images/logo.png',
+          globPatterns: ['src/images/logo.png'],
         },
       },
     },
