@@ -28,7 +28,7 @@ module.exports = {
         icons: [
           {
             src: 'src/images/logo.png',
-            sizes: '196x196',
+            sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
           },
@@ -73,7 +73,7 @@ module.exports = {
       resolve: 'gatsby-plugin-offline',
       options: {
         workboxConfig: {
-          globPatterns: ['**/src/images/logo.svg*'],
+          globPatterns: 'src/images/logo.png',
         },
       },
     },
