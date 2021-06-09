@@ -46,6 +46,7 @@ const StyledSidebar = styled.div`
     .name {
       color: ${({ theme }) => theme.color.details2};
       text-align: center;
+      font-weight: bold;
     }
     h3 {
       text-align: center;

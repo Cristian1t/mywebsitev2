@@ -18,8 +18,17 @@ const StyledProjects = styled.div`
 function Projects() {
   return (
     <StyledProjects>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+      >
         <title>Cristian Turmacu || Projects</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Here you can find more information about my projects and work in general. Click on the name to see more."
+        />
       </Helmet>
       <ProjectProvider>
         <ViewProject />

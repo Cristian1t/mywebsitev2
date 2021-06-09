@@ -128,8 +128,17 @@ const StyledContact = styled.div`
 function Contact() {
   return (
     <StyledContact>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+      >
         <title>Cristian Turmacu || Contact</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="On this page you can find my contact information. You can use email or the form."
+        />
       </Helmet>
       <h2 style={{ textAlign: 'center' }}>Get in touch!</h2>
       <h3 style={{ textAlign: 'center' }}>
@@ -139,7 +148,7 @@ function Contact() {
         <FiMail />
         <a href="mailto:cristianturmacu@yahoo.com">cristianturmacu@yahoo.com</a>
       </div>
-      <h3 style={{ textAlign: 'center' }}>Or using the form bellow:</h3>
+      <h3 style={{ textAlign: 'center' }}>Or using the form below:</h3>
       <div className="formcontainer">
         <form
           name="contact v1"

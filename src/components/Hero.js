@@ -75,9 +75,17 @@ const StyledHero = styled.div`
 const Hero = () => {
   return (
     <StyledHero id="container">
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+      >
         <title>Cristian Turmacu || Home</title>
         <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Portfolio website to showcase my projects and more. Feel free to contact"
+        />
       </Helmet>
       <Typist
         className="mytypist"

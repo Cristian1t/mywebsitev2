@@ -24,7 +24,7 @@ const StyledNavbar = styled.div`
     @media (min-width: 769px) {
       padding-right: 5rem;
     }
-    li {
+    .navlink {
       padding: 1rem;
       @media (min-width: 769px) {
         margin: 0;
@@ -68,7 +68,7 @@ function Navbar() {
 
   function toggleActiveStyles(index) {
     if (appState.objects[index] === appState.activeObject) {
-      return 'isactive';
+      return 'isactive navlink';
     } else {
       return null;
     }
@@ -79,7 +79,7 @@ function Navbar() {
   }
   return (
     <StyledNavbar className="div2">
-      <ul className="navitems">
+      <div className="navitems">
         {appState.objects.map((elements, index) => (
           <Link
             key={index}
@@ -92,10 +92,12 @@ function Navbar() {
             role="presentation"
             to={elements.linkto}
           >
-            <li className={toggleActiveStyles(index)}>{elements.name}</li>
+            <div className={`${toggleActiveStyles(index)} navlink`}>
+              {elements.name}
+            </div>
           </Link>
         ))}
-      </ul>
+      </div>
     </StyledNavbar>
   );
 }

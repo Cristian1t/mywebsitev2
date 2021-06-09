@@ -52,6 +52,7 @@ const StyledView = styled.div`
         :hover {
           color: white;
         }
+      }
     }
   }
 `;

@@ -15,6 +15,7 @@ import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
 
 import styled from 'styled-components';
 import { IconContext } from '@react-icons/all-files/lib';
+import { Helmet } from 'react-helmet';
 
 const StyledAbout = styled.div`
   display: grid;
@@ -137,6 +138,18 @@ const StyledAbout = styled.div`
 function About() {
   return (
     <StyledAbout>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+      >
+        <title>Cristian Turmacu || About</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Check out more about my development stack. Also how this page was built"
+        />
+      </Helmet>
       <IconContext.Provider value={{ className: 'react-icons' }}>
         <div className="first">
           <h2>
