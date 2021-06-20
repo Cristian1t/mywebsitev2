@@ -3,63 +3,67 @@ import styled from 'styled-components';
 import Parallax from 'parallax-js';
 
 const StyledParallax = styled.div`
-    display: none;
-    @media (min-width: 769px) {
-      display: flex;
-      color: ${({ theme }) => theme.color.details2};
-      font-size: 1.5rem;
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-    }
+  display: none;
+  @media (min-width: 769px) {
+    display: flex;
+    color: ${({ theme }) => theme.color.details2};
+    font-size: 1.5rem;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
 
-    .layer1 {
-      width: 0%;
-      margin-top: 18%;
-      margin-left: 68%;
-      font-size: 2.5rem;
-    }
-    .layer2 {
-      margin-top: 22%;
-      margin-left: 70%;
-      font-size: 1.5rem;
-    }
-    .layer3 {
-      margin-top: 14%;
-      margin-left: 75%;
-    }
-    .layer4 {
-      margin-top: 20%;
-      margin-left: 78%;
-      font-size: 1rem;
-    }
-    .layer5 {
-      margin-top: 26%;
-      margin-left: 80%;
-    }
-    .layer6 {
-      margin-top: 27%;
-      margin-left: 75%;
-      font-size: 1rem;
-    }
-    .layer7 {
-        margin-top: 29%;
-        margin-left: 77%;
-        font-size: 1.5rem;
-    }
-    .layer8 {
-        margin-top: 29%;
-        margin-left: 71%;
-        font-size: 1rem;
-    }
-    .layer9 {
-        margin-top: 32%;
-        margin-left: 85%;
-        font-size: 1.2rem;
-    }
+  .layer1 {
+    width: 0%;
+    margin-top: 18%;
+    margin-left: 68%;
+    font-size: 2.5rem;
+  }
+  .layer2 {
+    margin-top: 22%;
+    margin-left: 70%;
+    font-size: 1.5rem;
+  }
+  .layer3 {
+    margin-top: 14%;
+    margin-left: 75%;
+  }
+  .layer4 {
+    margin-top: 20%;
+    margin-left: 78%;
+    font-size: 1rem;
+  }
+  .layer5 {
+    margin-top: 26%;
+    margin-left: 80%;
+  }
+  .layer6 {
+    margin-top: 27%;
+    margin-left: 75%;
+    font-size: 1rem;
+  }
+  .layer7 {
+    margin-top: 29%;
+    margin-left: 77%;
+    font-size: 1.5rem;
+  }
+  .layer8 {
+    margin-top: 29%;
+    margin-left: 71%;
+    font-size: 1rem;
+  }
+  .layer9 {
+    margin-top: 32%;
+    margin-left: 85%;
+    font-size: 1.2rem;
+  }
+  .layer10 {
+    margin-top: 25%;
+    margin-left: 75%;
+    font-size: 1rem;
   }
 `;
 
@@ -110,6 +114,9 @@ function HeroParallax() {
       </div>
       <div data-depth="0.6" className="layer9">
         <h2>Redux</h2>
+      </div>
+      <div data-depth="0.9" className="layer10">
+        <h2>TailwindCSS</h2>
       </div>
     </StyledParallax>
   );

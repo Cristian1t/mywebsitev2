@@ -1,4 +1,3 @@
-import Typist from 'react-typist';
 import styled from 'styled-components';
 import React from 'react';
 import { Link } from 'gatsby';
@@ -19,14 +18,14 @@ const StyledHero = styled.div`
     }
 
     .bighello {
-      font-size: 5rem;
+      font-size: 4rem;
       font-family: ${({ theme }) => theme.fonts.second};
       font-weight: bold;
       text-transform: uppercase;
       margin: 0;
       line-height: normal;
       @media (min-width: 769px) {
-        font-size: 7em;
+        font-size: 6em;
       }
     }
     .welcome {
@@ -87,14 +86,10 @@ const Hero = () => {
           content="Portfolio website to showcase my projects and more. Feel free to contact"
         />
       </Helmet>
-      <Typist
-        className="mytypist"
-        cursor={{ show: false }}
-        avgTypingDelay={100}
-      >
+      <div className="mytypist">
         <h2 className="bighello">Hello</h2>
         <h2 className="welcome">Welcome to my website.</h2>
-      </Typist>
+      </div>
       <div className="line"></div>
       <div className="otherh3">
         <h3 className="lefth3">I'm a Front-End Developer</h3>

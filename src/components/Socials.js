@@ -3,7 +3,6 @@ import React from 'react';
 import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
 import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
 import styled from 'styled-components';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 const StyledSocials = styled.div`
   display: flex;
@@ -11,7 +10,7 @@ const StyledSocials = styled.div`
   cursor: pointer;
   justify-content: center;
   padding-top: 0.5rem;
-  @media (min-width: 679px) {
+  @media (min-width: 769px) {
     display: ${(props) => props.display || 'grid'};
 
     grid-template-columns: auto auto;
@@ -50,25 +49,25 @@ function Socials(props) {
         <FaGithubSquare className="github" />
       </div>
       <div className="sociallink">
-        <OutboundLink
+        <aside
           href="https://github.com/Cristian1t"
           target="_blank"
           rel="noopener noreferrer"
         >
           Github
-        </OutboundLink>
+        </aside>
       </div>
       <div className="socialicon">
         <FaLinkedin className="linkedin" />
       </div>
       <div className="sociallink">
-        <OutboundLink
+        <a
           href="https://www.linkedin.com/in/cristianturmacu/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Linkedin
-        </OutboundLink>
+        </a>
       </div>
     </StyledSocials>
   );
