@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { FiMail } from '@react-icons/all-files/fi/FiMail';
 
 const StyledContact = styled.div`
-  height: 100%;
   padding: 0;
   margin: 0;
   background: white;
@@ -37,90 +36,85 @@ const StyledContact = styled.div`
     text-align: center;
   }
   .formcontainer {
-    width: 100%;
+    background-color: ${({ theme }) => theme.color.details2};
     margin: 0 auto;
-    background: ${({ theme }) => theme.color.details2};
-    display: flex;
-    justify-content: center;
+    width: 90%;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
     @media (min-width: 769px) {
-      border-radius: 1rem;
-      margin-bottom: 2rem;
-      margin-top: 2rem;
+      width: 70%;
+      border-radius: 2rem;
+    }
+  }
+  form {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 0.2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr) 0.2fr;
+    }
+  }
+  input,
+  textarea {
+    padding: 0;
+    border: 0;
+    outline: 0;
+    width: 95%;
+    margin: 0.3rem auto;
+    min-height: 1.5rem;
+    font-size: 1.5rem;
+    @media (min-width: 769px) {
+      min-height: 2.5rem;
+      width: 90%;
     }
 
-    h3 {
-      padding-bottom: 0.2rem;
+    :focus {
+      border-left: 2px solid red;
+      border-right: 2px solid red;
     }
-    input {
-      height: 1.5rem;
-      font-size: 1.5rem;
-      text-align: center;
-      border-radius: 0.4rem;
-      border: 1px solid ${({ theme }) => theme.color.text};
+
+    @media (min-width: 769px) {
+      border-radius: 8px;
     }
-    textarea {
-      border: 1px solid ${({ theme }) => theme.color.text};
-      @media (min-width: 769px) {
-        height: 75%;
-      }
+  }
+
+  #input-submit {
+    color: white;
+    background: ${({ theme }) => theme.color.details};
+    cursor: pointer;
+    grid-area: 3 / 1 / 4 / 2;
+    :hover {
+      background: ${({ theme }) => theme.color.text};
     }
-    button {
-      border-radius: 0.4rem;
-      border: none;
-      box-shadow: 1px 1px black;
-      cursor: pointer;
+    margin-bottom: 1.5rem;
+    @media (min-width: 769px) {
     }
-    form {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto 1fr auto;
-      gap: 0px 0px;
-      grid-template-areas:
-        'name'
-        'email'
-        'message'
-        'send';
-      @media (min-width: 769px) {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 1rem;
-        grid-template-areas:
-          'name message'
-          'email message'
-          'send message';
-      }
-      .name {
-        margin: 0 auto;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        grid-area: name;
-      }
-      .email {
-        margin: 0 auto;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        grid-area: email;
-      }
-      .send {
-        margin: 1rem auto;
-        width: 60%;
-        grid-area: send;
-        font-weight: bold;
-        text-transform: uppercase;
-        @media (min-width: 769px) {
-          margin-top: 3rem;
-          height: 2rem;
-        }
-      }
-      .message {
-        margin: 0 auto;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        grid-area: message;
-      }
+
+    :hover {
+    }
+    @media (min-width: 769px) {
+      grid-area: 3 / 1 / 4 / 3;
+    }
+  }
+
+  .left {
+    grid-area: 1 / 1 / 2 / 2;
+    @media (min-width: 769px) {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+  }
+
+  .right {
+    grid-area: 2 / 1 / 3 / 2;
+    @media (min-width: 769px) {
+      grid-area: 1 / 2 / 3 / 3;
     }
   }
 `;
@@ -151,7 +145,7 @@ function Contact() {
       <h3 style={{ textAlign: 'center' }}>Or using the form below:</h3>
       <div className="formcontainer">
         <form
-          name="contact v1"
+          name="cf"
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
@@ -159,23 +153,33 @@ function Contact() {
           <div hidden>
             <input name="bot-field" />
           </div>
-          <input type="hidden" name="form-name" value="contact v1" />
-          <div className="name">
-            <h3>Name</h3>
-            <input name="name" type="text" />
+          <input type="hidden" name="form-name" value="cf" />
+          <div className="left">
+            <input name="name" type="text" id="input-name" placeholder="Name" />
+            <input
+              name="email"
+              type="email"
+              id="input-email"
+              placeholder="Email address"
+            />
+            <input
+              type="text"
+              id="input-subject"
+              name="subject"
+              placeholder="Subject"
+            />
           </div>
-          <div className="email">
-            <h3>Email</h3>
-            <input name="email" type="email" />
+          <div className="right">
+            <textarea
+              name="message"
+              type="text"
+              id="input-message"
+              placeholder="Message"
+              rows="6"
+              cols="50"
+            />
           </div>
-
-          <button type="submit" className="send">
-            Send
-          </button>
-          <div className="message">
-            <h3>Message</h3>
-            <textarea rows="4" cols="50" name="message" type="text" />
-          </div>
+          <input type="submit" value="Submit" id="input-submit" />
         </form>
       </div>
     </StyledContact>
