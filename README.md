@@ -17,7 +17,6 @@
 - Other:
   - React Icons
   - Styled Normalize
-  - React Typist
   - Parallax-js
   - React Table
 
