@@ -49,13 +49,13 @@ function Socials(props) {
         <FaGithubSquare className="github" />
       </div>
       <div className="sociallink">
-        <aside
+        <a
           href="https://github.com/Cristian1t"
           target="_blank"
           rel="noopener noreferrer"
         >
           Github
-        </aside>
+        </a>
       </div>
       <div className="socialicon">
         <FaLinkedin className="linkedin" />
