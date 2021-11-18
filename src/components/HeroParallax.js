@@ -4,7 +4,7 @@ import Parallax from 'parallax-js';
 
 const StyledParallax = styled.div`
   display: none;
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     display: flex;
     color: ${({ theme }) => theme.color.details2};
     font-size: 1.5rem;
@@ -65,6 +65,16 @@ const StyledParallax = styled.div`
     margin-left: 75%;
     font-size: 1rem;
   }
+  .layer11 {
+    margin-top: 25%;
+    margin-left: 65%;
+    font-size: 1.5rem;
+  }
+  .layer12 {
+    margin-top: 32%;
+    margin-left: 65%;
+    font-size: 1.5rem;
+  }
 `;
 
 function HeroParallax() {
@@ -117,6 +127,12 @@ function HeroParallax() {
       </div>
       <div data-depth="0.9" className="layer10">
         <h2>TailwindCSS</h2>
+      </div>
+      <div data-depth="0.3" className="layer11">
+        <h2>Angular</h2>
+      </div>
+      <div data-depth="0.4" className="layer12">
+        <h2>Typescript</h2>
       </div>
     </StyledParallax>
   );

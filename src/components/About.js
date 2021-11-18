@@ -12,6 +12,8 @@ import { GrGraphQl } from '@react-icons/all-files/gr/GrGraphQl';
 import { SiJest } from '@react-icons/all-files/si/SiJest';
 import { FaGitAlt } from '@react-icons/all-files/fa/FaGitAlt';
 import { FaGithubSquare } from '@react-icons/all-files/fa/FaGithubSquare';
+import { SiAngular } from "@react-icons/all-files/si/SiAngular";
+import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
 
 import styled from 'styled-components';
 import { IconContext } from '@react-icons/all-files/lib';
@@ -99,6 +101,12 @@ const StyledAbout = styled.div`
     .htmlicon {
       color: red;
     }
+    .angular {
+      color: darkred;
+    }
+    .typescript {
+      color: dodgerblue;
+    }
   }
   .second {
     margin-top: 1rem;
@@ -159,12 +167,19 @@ function About() {
           <p className="besidesp">
             Besides <AiFillHtml5 className="htmlicon" />
             HTML, <IoLogoCss3 className="css" />
-            CSS and <SiJavascript className="javascript" />
-            JavaScript... I mainly use <FaReact className="react" />
+            CSS, <SiJavascript className="javascript" />
+            JavaScript and <SiTypescript className="typescript" />
+            Typescript
+            </p>
+          <p className="besidesp">
+            I mainly use <FaReact className="react" />
             React with <SiGatsby className="gatsby" />
             GatsbyJS/
             <SiNextDotJs className="nextjs" />
-            NextJS frameworks.
+            NextJS frameworks.,
+          </p>
+          <p className="besidesp">
+            Also started using <SiAngular className="angular" /> Angular and Angular Material
           </p>
           <ul>
             <li>
@@ -189,10 +204,10 @@ function About() {
               <span>UI/UX:</span> Figma, SketchBook, Adobe Illustrator
             </li>
             <li>
-              <span>Back-End:</span> NodeJs, Express, MongoDB (still learning)
+              <span>Back-End:</span> NodeJs, Nest, Express, MongoDB (still learning)
             </li>
             <li>
-              <span className="basic">Basic understanding of PHP, SQL</span>
+              <span className="basic">Basic understanding of Vue, WP, PHP, SQL</span>
             </li>
           </ul>
         </div>
